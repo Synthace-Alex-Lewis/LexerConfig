@@ -1,5 +1,3 @@
-See
-
 # Profile
 
 To install the config, open a powershell window and run:
