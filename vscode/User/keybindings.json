@@ -10,7 +10,7 @@
         "command": "workbench.action.tasks.runTask"
     },
     {
-        "key": "ctrl+enter",
+        "key": "alt+enter",
         "command": "editor.action.quickFix",
         "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
