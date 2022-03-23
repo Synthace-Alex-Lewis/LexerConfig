@@ -14,6 +14,7 @@
   * [git graph](https://github.com/mhutchie/vscode-git-graph)
   * [comment wrapper](https://github.com/stkb/Rewrap)
   * [powershell linter](https://github.com/PowerShell/vscode-powershell)
+  * [git blame](https://github.com/Sertion/vscode-gitblame)
   * c++
     * [clang-format](https://github.com/xaverh/vscode-clang-format-provider)
     * [cpp tools](https://github.com/Microsoft/vscode-cpptools)
