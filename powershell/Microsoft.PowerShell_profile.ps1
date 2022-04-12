@@ -14,6 +14,15 @@ function gitAddPatch {
     git add --patch
 }
 
+function gitdifftoolToCommonAncestor
+{
+  param ([Parameter()][string]$branchToCompTo)
+  $currentBranch = git rev-parse --abbrev-ref HEAD
+  $changeset = git merge-base $currentBranch $branchToCompTo
+  git difftool -d $currentBranch $changeset
+}
+
+Set-Alias -name gdt -Value gitdifftoolToCommonAncestor
 Set-Alias -Name here -Value expdot
 Set-Alias -Name gs -Value gitStatus
 Set-Alias -Name gap -Value gitAddPatch
