@@ -1,21 +1,25 @@
 function expdot {
-    C:\Windows\explorer.exe .
+  C:\Windows\explorer.exe .
 }
 
 function bg() {
-    Start-Process -NoNewWindow @args
+  Start-Process -NoNewWindow @args
 }
 
 function gitStatus {
-    git status
+  git status
 }
 
 function gitAddPatch {
-    git add --patch
+  git add --patch
 }
 
-function gitdifftoolToCommonAncestor
-{
+function gitSync {
+  git fetch -tpf
+  git pull
+}
+
+function gitdifftoolToCommonAncestor {
   param ([Parameter()][string]$branchToCompTo)
   $currentBranch = git rev-parse --abbrev-ref HEAD
   $changeset = git merge-base $currentBranch $branchToCompTo
@@ -26,6 +30,7 @@ Set-Alias -name gdt -Value gitdifftoolToCommonAncestor
 Set-Alias -Name here -Value expdot
 Set-Alias -Name gs -Value gitStatus
 Set-Alias -Name gap -Value gitAddPatch
+Set-Alias -Name gsync -Value gitSync
 
 Import-Module posh-git
 
