@@ -32,9 +32,17 @@ Set-Alias -Name gs -Value gitStatus
 Set-Alias -Name gap -Value gitAddPatch
 Set-Alias -Name gsync -Value gitSync
 
-Import-Module posh-git
+function init_posh_git() {
+  Import-Module posh-git
+}
 
-Write-Host -ForegroundColor Green "## LexerConfig v1.0.0 ##"
+function init_analyzer() {
+  Install-Module -Name PSScriptAnalyzer -Force
+}
+
+init_posh_git
+
+Write-Host -ForegroundColor Green "## LexerConfig v1.0.1 ##"
 Write-Host "History location $($(Get-PSReadlineOption).HistorySavePath)"
 Write-Host "Powershell Profile loaded $profile"
 Write-Host "==============================================================================================="
