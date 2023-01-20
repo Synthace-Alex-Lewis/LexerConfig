@@ -42,7 +42,12 @@ function init_analyzer() {
 
 init_posh_git
 
-Write-Host -ForegroundColor Green "## LexerConfig v1.0.1 ##"
-Write-Host "History location $($(Get-PSReadlineOption).HistorySavePath)"
-Write-Host "Powershell Profile loaded $profile"
+Write-Host -ForegroundColor Green "## LexerConfig v1.0.2 ##"
+
+Write-Host "History location " -NoNewLine
+Write-Host -ForegroundColor Green "$($(Get-PSReadlineOption).HistorySavePath)"
+
+Write-Host "Powershell Profile loaded " -NoNewLine
+Write-Host -ForegroundColor Green "$profile"
+
 Write-Host "==============================================================================================="
