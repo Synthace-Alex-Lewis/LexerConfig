@@ -1,7 +1,9 @@
 [alias]
   graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
   id = rev-parse HEAD
-  dtd = difftool -d --no-symlinks
-  dtm = difftool -d --no-symlinks master
+  dtd = difftool -d --no-symlinks # dtb == Diff To Branch
+  dtm = difftool -d --no-symlinks master # dtm == Diff To Maste
+  dim = diff master..HEAD # dim == Diff Inline to Master
+  p = push --set-upstream origin HEAD
 [core]
   editor = code --wait
