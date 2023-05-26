@@ -7,9 +7,10 @@
   p = push --set-upstream origin HEAD
 [core]
   editor = code --wait # git config --global core.editor "code --wait"
+  autocrlf = false
 
 
 # --- Work Specific ---
 [user]
-  name = Alex Lewis
-  email = alex.lewis@synthace.com
+  name = "Alex Lewis"
+  email = "alex.lewis@synthace.com"
