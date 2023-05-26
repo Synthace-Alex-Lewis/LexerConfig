@@ -1,5 +1,11 @@
 # Lexer's Configs
 
+### WSL install process:
+
+```ps1
+wsl --install
+```
+
 ## Pre-requisites
 
 * [posh git](https://github.com/dahlbyk/posh-git)
