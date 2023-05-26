@@ -1,4 +1,18 @@
+# This file is the bashrc snippet which should be appended to the default .bashrc in most linux distros
+######################################################################################################
+
 # Start go versions management
+# First install?
+#  1. create "$HOME/sdk"
+#     mkdir "$HOME/sdk" && cd "$HOME/sdk"
+#  2. Install from https://go.dev/dl/
+#     mkdir go1.20.4 && cd go1.20.4
+#     wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
+#     tar -xzf go1.20.4.linux-amd64.tar.gz
+#     mv go go1.20.4
+#     mv go1.20.4.linux-amd64.tar.gz go1.20.4/go1.20.4.linux-amd64.tar.gz
+#  3. Then edit this snippet to point to that go version you just installed (already correct for 1.20.4)
+#  4. source ~/.bashrc
 path_remove () {
     export PATH=$(echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//');
 }
@@ -49,3 +63,11 @@ export GOBIN="$GOPATH/bin"
 export GOPRIVATE=github.com/Synthace
 export PATH="$PATH:$GOBIN"
 # end go version management
+
+# Start git bash prompt
+# Install from https://github.com/magicmonty/bash-git-prompt
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
+# End git bash prompt
