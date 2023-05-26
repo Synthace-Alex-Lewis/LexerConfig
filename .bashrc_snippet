@@ -1,0 +1,51 @@
+# Start go versions management
+path_remove () {
+    export PATH=$(echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//');
+}
+
+# My path is polluted from other places, so nuke it here
+path_remove "/usr/local/go/bin"
+
+# To add a new go version, add the version to this index
+# install it via: `go install golang.org/dl/go1.XX.X@latest`
+# `go1.XX.X download`
+# add a corresponding `alex_switch_shell_to_go_1.XX.X` function which calls the next index.
+# Always put the latest version at the front of the array.
+INSTALLED_GO_VER=("1.20.4")
+SDK_PATH="$HOME/sdk"
+
+function ____impl_alex_switch_shell_to_go() { 
+    VERBOSE=$1
+    VERSION=$2
+    if [[ $VERBOSE -eq 1 ]]; then echo "VERSION to switch too = $VERSION"; fi
+    # clean all installed versions, PATH seems to be very polluted
+    for i in "${INSTALLED_GO_VER[@]}"; do
+        if [[ $VERBOSE -eq 1 ]]; then echo "Removing $i from PATH"; fi
+        path_remove "$SDK_PATH/go$i"
+        path_remove "$SDK_PATH/go$i/bin"
+        path_remove "$SDK_PATH/go$i/bin/go"
+    done
+
+    # actually do the switch
+    export GOROOT="$SDK_PATH/go$VERSION"
+    if [[ $VERBOSE -eq 1 ]]; then echo "export GOROOT = $GOROOT"; fi
+    if [[ $VERBOSE -eq 1 ]]; then echo "\$GOROOT/bin/ = $GOROOT/bin/"; fi
+    export PATH="$PATH:$GOROOT/bin/"
+    if [[ $VERBOSE -eq 1 ]]; then echo "export new PATH = $PATH"; fi
+    if [[ $VERBOSE -eq 1 ]]; then go version; fi
+}
+
+function alex_switch_shell_to_go_1.20.4() {
+    index=$((${#INSTALLED_GO_VER[@]}-1))
+    ____impl_alex_switch_shell_to_go 0 "${INSTALLED_GO_VER[$index]}"
+}
+
+# This specifies the current default go version to use when launching a shell
+____impl_alex_switch_shell_to_go 0 "${INSTALLED_GO_VER[0]}"
+
+# locally built go binaries added to the path
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export GOPRIVATE=github.com/Synthace
+export PATH="$PATH:$GOBIN"
+# end go version management
