@@ -1,14 +1,24 @@
-[commit]
-	gpgsign = true
+[user]
+	name = "Lexer747"
+	email = "Lexer747@gmail.com"
+	# If using a signing key, use SSH not gpg, don't password protect it on trusted computers.
+	signingkey = /home/Lexer747/.ssh/id_ed25519.pub
+[core]
+	editor = code --wait # git config --global core.editor "code --wait"
+	autocrlf = false
+	sharedRepository = true
 [alias]
 	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''					%C(white)%s%C(reset)%n''					%C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 	id = rev-parse HEAD
 	dtd = difftool -d --no-symlinks # dtb == Diff To Branch
-	dtm = difftool -d --no-symlinks master # dtm == Diff To Maste
+	dtm = difftool -d --no-symlinks master # dtm == Diff To Master
 	dim = diff master..HEAD # dim == Diff Inline to Master
 	p = push --set-upstream origin HEAD
-	br = blame -C -C -C --color-lines
-[core]
-	editor = code --wait
+	br = blame -C -C -C -M --color-lines --progress
+	c = checkout
+[init]
+	defaultBranch = main
 [column]
 	ui = always
+[gpg]
+	format = ssh
