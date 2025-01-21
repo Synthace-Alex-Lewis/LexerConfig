@@ -22,3 +22,9 @@
 	ui = always
 [gpg]
 	format = ssh
+[pager]
+	# Use `delta`.
+	# https://dandavison.github.io/delta/installation.html
+	log = delta
+	show = delta
+	diff = delta
