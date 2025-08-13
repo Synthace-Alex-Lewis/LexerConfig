@@ -5,6 +5,7 @@ alias gsync="git fetch -tpf && git pull"
 alias gm="git commit -m"
 alias gam="git commit --amend --no-edit"
 alias whitespace="sed 's/ /·/g;s/\t/￫/g;s/\r/⏎/g;s/$/¶/g'"
+alias la="ls -lah"
 cpf () {
 	TO_COPY=$1
 	WHERE_TO_PUT=$2
