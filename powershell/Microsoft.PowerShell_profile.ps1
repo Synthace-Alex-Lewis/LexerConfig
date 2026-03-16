@@ -14,6 +14,10 @@ function gitAddPatch {
   git add --patch
 }
 
+function gitCommitAmmendNoEdit {
+  git commit --amend --no-edit
+}
+
 function gitSync {
   git fetch -tpf
   git pull
@@ -30,6 +34,7 @@ Set-Alias -name gdt -Value gitdifftoolToCommonAncestor
 Set-Alias -Name here -Value expdot
 Set-Alias -Name gs -Value gitStatus
 Set-Alias -Name gap -Value gitAddPatch
+Set-Alias -Name gam -Value gitCommitAmmendNoEdit
 Set-Alias -Name gsync -Value gitSync
 
 function init_posh_git() {
