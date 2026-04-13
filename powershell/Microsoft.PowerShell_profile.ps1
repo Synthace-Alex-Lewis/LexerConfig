@@ -47,7 +47,7 @@ function init_analyzer() {
 
 init_posh_git
 
-Write-Host -ForegroundColor Green "## LexerConfig v1.0.2 ##"
+Write-Host -ForegroundColor Green "## LexerConfig v1.0.3 ##"
 
 Write-Host "History location " -NoNewLine
 Write-Host -ForegroundColor Green "$($(Get-PSReadlineOption).HistorySavePath)"
